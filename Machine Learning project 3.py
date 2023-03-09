@@ -8,8 +8,9 @@ from sklearn.model_selection import train_test_split, KFold, StratifiedKFold
 from sklearn.metrics import recall_score, accuracy_score, precision_score
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
-
+import helper.label_encoder as lenc
 df = pd.read_csv("./data/emp_attrition.csv")
+
 
 def head():
     print(df.head())
@@ -50,7 +51,7 @@ def check_missing(df):
 # heatmap(df)
 
 #label encoding 
-def label_encoder_fuction(col_name, data_series_oftarget,*dataframe):
+def label_encoder_fuction(df,col_name, data_series_oftarget,*dataframe):
         le =LabelEncoder()
 
         if (dataframe != None):      
@@ -65,8 +66,7 @@ def label_encoder_fuction(col_name, data_series_oftarget,*dataframe):
         else:        
                 features.drop(col_name,axis= 1,inplace = True)
 
-
-label_encoder_fuction("Attrition",y)
+label_encoder_fuction(df,"Attrition",y)
 
 #encoding features column and dropping
 list1 = (features.dtypes == object).tolist()
