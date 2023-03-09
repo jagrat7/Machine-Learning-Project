@@ -51,22 +51,7 @@ def check_missing(df):
 # heatmap(df)
 
 #label encoding 
-def label_encoder_fuction(df,col_name, data_series_oftarget,*dataframe):
-        le =LabelEncoder()
-
-        if (dataframe != None):      
-                df["%s_encoded"%(col_name)] = le.fit_transform(data_series_oftarget)
-                
-        else:        
-                print("oo")
-                dataframe ["%s_encoded"%(col_name)] = le.fit_transform(data_series_oftarget)
-       
-        if col_name == "Attrition":
-                None
-        else:        
-                features.drop(col_name,axis= 1,inplace = True)
-
-label_encoder_fuction(df,"Attrition",y)
+lenc.label_encoder_fuction(df,"Attrition",y)
 
 #encoding features column and dropping
 list1 = (features.dtypes == object).tolist()
@@ -75,7 +60,7 @@ i = len(list1)
 z=0
 for x in list2:
         if (list1[z] == True):
-                label_encoder_fuction(list2[z],features[list2[z]],features)
+                lenc.label_encoder_fuction(df,list2[z],features[list2[z]],features)
                 features["%s_en"%(list2[z])]= df["%s_encoded"%(list2[z])].values.ravel()
                 #features['OverTime_en']= df['OverTime_encoded'].values.ravel()
                
