@@ -9,7 +9,7 @@ from sklearn.metrics import recall_score, accuracy_score, precision_score
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
 
-df = pd.read_csv("C:\\Users\\raoja\\Desktop\\internship\\EmployeeAttritionData.csv")
+df = pd.read_csv("./data/emp_attrition.csv")
 
 def head():
     print(df.head())
